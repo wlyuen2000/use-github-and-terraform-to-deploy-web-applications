@@ -8,7 +8,7 @@ terraform {
 }
 
 provider "github" {
-  owner = "<FILLMEIN>"
+  owner = "wlyuen2000"
 }
 
 provider "aws" {
