@@ -17,31 +17,3 @@ provider "aws" {
     }
   }
 }
-
-provider "aws" {
-  alias   = "testing"
-  profile = "default"
-  region  = var.Region
-
-  default_tags {
-    tags = {
-      Environment = "Testing"
-      Provisioner = "Terraform"
-      Solution    = "AWS-GHA-TF-MSFT"
-    }
-  }
-}
-
-provider "aws" {
-  alias   = "production"
-  profile = "default"
-  region  = var.Region
-
-  default_tags {
-    tags = {
-      Environment = "Production"
-      Provisioner = "Terraform"
-      Solution    = "AWS-GHA-TF-MSFT"
-    }
-  }
-}
