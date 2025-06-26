@@ -12,4 +12,4 @@ prod_role_arn = "arn:aws:iam::654654578403:role/tfbootiarpdtfassumerole"
 # GitHub Settings
 GitHubOrg       = "wlyuen2000"
 GitHubRepo      = "use-github-and-terraform-to-deploy-web-applications"
-InfraCostAPIKey = "ico-UZASzHhdFqN9wNiRapdQEgenkIEyWTYT"
+InfraCostAPIKey = "ico-UZASzHhdFqN9wNiRapdQEgenkIEyWTYT"  
