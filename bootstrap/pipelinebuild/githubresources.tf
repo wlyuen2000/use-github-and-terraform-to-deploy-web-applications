@@ -17,18 +17,18 @@ locals {
 
   gha_iam_role = {
     dev  = module.tfbootstrap_dev.gha_iam_role
-    test = module.tfbootstrap_test.gha_iam_role
-    prod = module.tfbootstrap_prod.gha_iam_role
+    # test = module.tfbootstrap_test.gha_iam_role
+    # prod = module.tfbootstrap_prod.gha_iam_role
   }
   tfstate_bucket_name = {
     dev  = module.tfbootstrap_dev.tfstate_bucket_name
-    test = module.tfbootstrap_test.tfstate_bucket_name
-    prod = module.tfbootstrap_prod.tfstate_bucket_name
+    # test = module.tfbootstrap_test.tfstate_bucket_name
+    # prod = module.tfbootstrap_prod.tfstate_bucket_name
   }
   tfstate_dynamodb_table = {
     dev  = module.tfbootstrap_dev.tfstate_dynamodb_table_name
-    test = module.tfbootstrap_test.tfstate_dynamodb_table_name
-    prod = module.tfbootstrap_prod.tfstate_dynamodb_table_name
+    # test = module.tfbootstrap_test.tfstate_dynamodb_table_name
+    # prod = module.tfbootstrap_prod.tfstate_dynamodb_table_name
   }
 }
 
@@ -173,21 +173,21 @@ locals {
     }
   )
   # Declare test specific GitHub Environments variables
-  environment_variables_test = merge(
-    local.environment_variables_common,
-    {
-      TF_VAR_ENVCODE = "ts"
-      TF_VAR_ENVTAG  = "Testing"
-    }
-  )
-  # Declare prod specific GitHub Environments variables
-  environment_variables_prod = merge(
-    local.environment_variables_common,
-    {
-      TF_VAR_ENVCODE = "pd"
-      TF_VAR_ENVTAG  = "Production"
-    }
-  )
+  # environment_variables_test = merge(
+  #   local.environment_variables_common,
+  #   {
+  #     TF_VAR_ENVCODE = "ts"
+  #     TF_VAR_ENVTAG  = "Testing"
+  #   }
+  # )
+  # # Declare prod specific GitHub Environments variables
+  # environment_variables_prod = merge(
+  #   local.environment_variables_common,
+  #   {
+  #     TF_VAR_ENVCODE = "pd"
+  #     TF_VAR_ENVTAG  = "Production"
+  #   }
+  # )
 }
 
 # Create GitHub Environment Variables
