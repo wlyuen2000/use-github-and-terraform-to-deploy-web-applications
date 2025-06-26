@@ -6,7 +6,7 @@ provider "aws" {
 
 provider "aws" {
   alias   = "development"
-  profile = "<FILLMEIN>"
+  profile = "default"
   region  = var.Region
 
   default_tags {
@@ -20,7 +20,7 @@ provider "aws" {
 
 provider "aws" {
   alias   = "testing"
-  profile = "<FILLMEIN>"
+  profile = "default"
   region  = var.Region
 
   default_tags {
@@ -34,7 +34,7 @@ provider "aws" {
 
 provider "aws" {
   alias   = "production"
-  profile = "<FILLMEIN>"
+  profile = "default"
   region  = var.Region
 
   default_tags {
