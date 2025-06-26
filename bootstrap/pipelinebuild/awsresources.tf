@@ -12,31 +12,31 @@ module "tfbootstrap_dev" {
   GitHubEnv  = "dev"
 }
 
-module "tfbootstrap_test" {
-  source = "./modules/tfbootstrap"
-  providers = {
-    aws = aws.testing
-  }
-  Region     = var.Region
-  Prefix     = var.Prefix
-  EnvCode    = "ts"
-  GitHubOrg  = var.GitHubOrg
-  GitHubRepo = var.GitHubRepo
-  GitHubEnv  = "test"
-}
+# module "tfbootstrap_test" {
+#   source = "./modules/tfbootstrap"
+#   providers = {
+#     aws = aws.testing
+#   }
+#   Region     = var.Region
+#   Prefix     = var.Prefix
+#   EnvCode    = "ts"
+#   GitHubOrg  = var.GitHubOrg
+#   GitHubRepo = var.GitHubRepo
+#   GitHubEnv  = "test"
+# }
 
-module "tfbootstrap_prod" {
-  source = "./modules/tfbootstrap"
-  providers = {
-    aws = aws.production
-  }
-  Region     = var.Region
-  Prefix     = var.Prefix
-  EnvCode    = "pd"
-  GitHubOrg  = var.GitHubOrg
-  GitHubRepo = var.GitHubRepo
-  GitHubEnv  = "prod"
-}
+# module "tfbootstrap_prod" {
+#   source = "./modules/tfbootstrap"
+#   providers = {
+#     aws = aws.production
+#   }
+#   Region     = var.Region
+#   Prefix     = var.Prefix
+#   EnvCode    = "pd"
+#   GitHubOrg  = var.GitHubOrg
+#   GitHubRepo = var.GitHubRepo
+#   GitHubEnv  = "prod"
+# }
 
 # DEBUGGING: Outputs for GitHub Action Secrets
 # output "gha_iam_role" {
