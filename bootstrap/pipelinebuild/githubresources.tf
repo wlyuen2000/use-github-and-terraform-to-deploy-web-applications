@@ -13,7 +13,7 @@ resource "github_branch" "test" {
 
 # Local variables used to define GitHub Environments and Secrets configuration
 locals {
-  gha_environment = ["dev", "test", "prod"]
+  gha_environment = ["dev"]
 
   gha_iam_role = {
     dev  = module.tfbootstrap_dev.gha_iam_role
@@ -58,23 +58,23 @@ resource "github_repository_environment_deployment_policy" "dev2test" {
   branch_pattern = "dev*"
 }
 
-resource "github_repository_environment_deployment_policy" "test" {
-  repository     = var.GitHubRepo
-  environment    = github_repository_environment.env["test"].environment
-  branch_pattern = "test*"
-}
+# resource "github_repository_environment_deployment_policy" "test" {
+#   repository     = var.GitHubRepo
+#   environment    = github_repository_environment.env["test"].environment
+#   branch_pattern = "test*"
+# }
 
-resource "github_repository_environment_deployment_policy" "test2prod" {
-  repository     = var.GitHubRepo
-  environment    = github_repository_environment.env["prod"].environment
-  branch_pattern = "test*"
-}
+# resource "github_repository_environment_deployment_policy" "test2prod" {
+#   repository     = var.GitHubRepo
+#   environment    = github_repository_environment.env["prod"].environment
+#   branch_pattern = "test*"
+# }
 
-resource "github_repository_environment_deployment_policy" "prod" {
-  repository     = var.GitHubRepo
-  environment    = github_repository_environment.env["prod"].environment
-  branch_pattern = "main"
-}
+# resource "github_repository_environment_deployment_policy" "prod" {
+#   repository     = var.GitHubRepo
+#   environment    = github_repository_environment.env["prod"].environment
+#   branch_pattern = "main"
+# }
 
 # Create GitHub branch protection policy
 resource "github_branch_protection" "main" {
@@ -200,20 +200,20 @@ resource "github_actions_environment_variable" "dev" {
   value         = each.value
 }
 
-resource "github_actions_environment_variable" "test" {
-  for_each = local.environment_variables_test
+# resource "github_actions_environment_variable" "test" {
+#   for_each = local.environment_variables_test
 
-  repository    = var.GitHubRepo
-  environment   = github_repository_environment.env["test"].environment
-  variable_name = each.key
-  value         = each.value
-}
+#   repository    = var.GitHubRepo
+#   environment   = github_repository_environment.env["test"].environment
+#   variable_name = each.key
+#   value         = each.value
+# }
 
-resource "github_actions_environment_variable" "prod" {
-  for_each = local.environment_variables_prod
+# resource "github_actions_environment_variable" "prod" {
+#   for_each = local.environment_variables_prod
 
-  repository    = var.GitHubRepo
-  environment   = github_repository_environment.env["prod"].environment
-  variable_name = each.key
-  value         = each.value
-}
+#   repository    = var.GitHubRepo
+#   environment   = github_repository_environment.env["prod"].environment
+#   variable_name = each.key
+#   value         = each.value
+# }

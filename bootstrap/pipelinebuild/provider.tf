@@ -8,7 +8,7 @@ terraform {
 }
 
 provider "github" {
-  owner = "<FILLMEIN>"
+  owner = "wlyuen2000"
 }
 
 provider "aws" {
@@ -29,35 +29,35 @@ provider "aws" {
   }
 }
 
-provider "aws" {
-  alias   = "testing"
-  profile = "default"
-  region  = var.Region
+# provider "aws" {
+#   alias   = "testing"
+#   profile = "default"
+#   region  = var.Region
 
-  assume_role {
-    role_arn = var.test_role_arn
-  }
-  default_tags {
-    tags = {
-      Environment = "Testing"
-      Provisioner = "Terraform"
-    }
-  }
-}
+#   assume_role {
+#     role_arn = var.test_role_arn
+#   }
+#   default_tags {
+#     tags = {
+#       Environment = "Testing"
+#       Provisioner = "Terraform"
+#     }
+#   }
+# }
 
-provider "aws" {
-  alias   = "production"
-  profile = "default"
-  region  = var.Region
+# provider "aws" {
+#   alias   = "production"
+#   profile = "default"
+#   region  = var.Region
 
-  assume_role {
-    role_arn = var.prod_role_arn
-  }
+#   assume_role {
+#     role_arn = var.prod_role_arn
+#   }
 
-  default_tags {
-    tags = {
-      Environment = "Production"
-      Provisioner = "Terraform"
-    }
-  }
-}
+#   default_tags {
+#     tags = {
+#       Environment = "Production"
+#       Provisioner = "Terraform"
+#     }
+#   }
+# }
